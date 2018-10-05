@@ -1,4 +1,4 @@
- //declare bacteria variables here
+  //declare bacteria variables here
 
  Bacteria [] bois; 
  void setup()   
@@ -17,6 +17,12 @@
  	background(#C4C4C4); 
 	for(int i = 0; i < bois.length; i++)
 	{
+               /* if(mousePressed == true)
+                {
+bois[i]myX = 0;
+
+                  boismyY = 0;
+                }*/
 		fill(bois[i].myColor);
 		bois[i].show();
 		bois[i].move();
@@ -34,18 +40,26 @@
  	}
  	void move()
  	{
- 		if(mouseX > myX)
+ 		if(mouseX > 250 && mouseY > 250)
  		{
  			myX = myX + (int)(Math.random()*5);
- 		}else if (mouseX < myX) {
+ 	                myY = myY + (int)(Math.random()*5);
+ 		}
+                else if (mouseX < 250 && mouseY < 250) 
+                {
  			myX = myX - (int)(Math.random()*5);
+                        myY = myY - (int)(Math.random()*5);
  		}
- 		if(mouseY > myY)
+ 		else if(mouseY > 250 && mouseX < 250)
  		{
+                        myX = myX - (int)(Math.random()*5);
  			myY = myY + (int)(Math.random()*5);
- 		}else if (mouseY < myY) {
- 			myY = myY - (int)(Math.random()*5);
  		}
+                else if(mouseY < 250 && mouseX > 250)
+ 		{
+                        myX = myX + (int)(Math.random()*5);
+ 			myY = myY - (int)(Math.random()*5);
+                }
  	}
  	void show()
  	{
