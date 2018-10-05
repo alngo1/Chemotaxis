@@ -27,20 +27,28 @@
  	int myX, myY, myColor;
  	Bacteria()
  	{
- 		myX = (int)(Math.random()*100)+1;
- 		myY = (int)(Math.random()*100)+1;
- 		int rCR = (int)(Math.random()*256);
-		int rCB = (int)(Math.random()*256);
-		int rCG = (int)(Math.random()*256);
- 		myColor = color(rCR, rCB, rCG);
+ 		myX = (int)(Math.random()*250)+1;
+ 		myY = (int)(Math.random()*250)+1;
+ 		int randomGray = 110;
+ 		myColor = color(randomGray, randomGray, randomGray);
  	}
  	void move()
  	{
-    	myX = myX + (int)(Math.random()*7)-3;
-    	myY = myY + (int)(Math.random()*7)-3;
+ 		if(mouseX > myX)
+ 		{
+ 			myX = myX + (int)(Math.random()*5);
+ 		}else if (mouseX < myX) {
+ 			myX = myX - (int)(Math.random()*5);
+ 		}
+ 		if(mouseY > myY)
+ 		{
+ 			myY = myY + (int)(Math.random()*5);
+ 		}else if (mouseY < myY) {
+ 			myY = myY - (int)(Math.random()*5);
+ 		}
  	}
  	void show()
  	{
-	    ellipse(myX, myY, 30, 30);
+	    ellipse(myX, myY, 50, 50);
  	}
  }    
